@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodConnect - Emergency Blood Donor Finder</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-droplet"></i></div>
+                <span>BloodConnect</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#requests">Emergency Requests</a>
+                <a href="#find-donors">Find Donors</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-outline">Login</button>
+                <button class="btn-primary" id="btn-request-blood">Request Blood</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge">Critical Lifeline Network</div>
+            <h1>Every Drop <span>Counts</span>.<br>Be a Hero Today.</h1>
+            <p>Connect instantly with real-time blood emergencies in your area. Your prompt response can be the difference between life and death.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-large" id="btn-hero-find">Find a Donor</button>
+                <button class="btn-secondary btn-large">Register to Donate</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h4>2,450+</h4>
+                    <p>Lives Saved</p>
+                </div>
+                <div class="stat-item">
+                    <h4>10,000+</h4>
+                    <p>Active Donors</p>
+                </div>
+                <div class="stat-item">
+                    <h4>&lt; 15 Mins</h4>
+                    <p>Avg. Response</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-card">
+                <i class="fa-solid fa-heart-pulse visual-icon"></i>
+                <h3>Emergency Match Located</h3>
+                <p>O- Negative needed at City Hospital</p>
+                <button class="btn-secondary btn-small">Accept Request</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Section (Find Donors) -->
+    <section class="search-section" id="find-donors">
+        <div class="container section-header text-center">
+            <h2>Find Blood Donors Instantly</h2>
+            <p>Search our network of registered donors by blood type and location.</p>
+        </div>
+        <div class="search-container glass-panel">
+            <form id="search-donors-form" class="search-grid">
+                <div class="input-group">
+                    <label>Blood Group</label>
+                    <select id="blood-group-filter">
+                        <option value="">Any Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Location / City</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" id="location-filter" placeholder="e.g. New York, NY">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Urgency Level</label>
+                    <select id="urgency-filter">
+                        <option value="">Any</option>
+                        <option value="critical">Critical (Need in &lt; 2 hrs)</option>
+                        <option value="high">High (Need Today)</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+                <div class="input-group search-btn-wrapper">
+                    <button type="submit" class="btn-primary search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Active Requests Section -->
+    <section class="requests-section" id="requests">
+        <div class="container section-header">
+            <div class="header-flex">
+                <div>
+                    <h2>Active Emergency Requests</h2>
+                    <p>People in your area who need immediate assistance.</p>
+                </div>
+                <a href="#" class="view-all">View All <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <div class="container cards-grid" id="requests-container">
+            <!-- Dynamically populated via JS -->
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="about">
+        <div class="container section-header text-center">
+            <h2>How BloodConnect Works</h2>
+            <p>A seamless process designed to save time during critical moments.</p>
+        </div>
+        <div class="container steps-grid">
+            <div class="step-card">
+                <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
+                <h3>1. Register</h3>
+                <p>Sign up securely as a donor and set your location and blood type.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fa-solid fa-bell"></i></div>
+                <h3>2. Get Alerted</h3>
+                <p>Receive instant notifications if someone nearby needs your specific blood type.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                <h3>3. Donate</h3>
+                <p>Connect with the recipient or hospital and schedule your donation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Modal -->
+    <div class="modal-overlay" id="emergency-modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Post an Emergency Request</h3>
+                <button class="close-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="emergency-form" class="emergency-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Patient Name</label>
+                        <input type="text" id="patient-name" required placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Blood Group Needed</label>
+                        <select id="req-blood-group" required>
+                            <option value="">Select Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Hospital/Location</label>
+                    <div class="input-icon-wrapper">
+                        <i class="fa-solid fa-hospital"></i>
+                        <input type="text" id="hospital-location" required placeholder="City General Hospital">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Units Required</label>
+                        <input type="number" id="units-required" min="1" max="10" required placeholder="1">
+                    </div>
+                    <div class="input-group">
+                        <label>Contact Number</label>
+                        <input type="tel" id="contact-number" required placeholder="+1 (555) 000-0000">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Additional Notes (Optional)</label>
+                    <textarea id="additional-notes" rows="3" placeholder="Any specific requirements..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary w-100 mt-3">Submit Emergency Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <span>BloodConnect</span>
+                </div>
+                <p>Bringing communities together to save lives through faster, more efficient blood donation match-making.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Platform</h4>
+                    <a href="#">Find Blood</a>
+                    <a href="#">Register as Donor</a>
+                    <a href="#">Hospitals</a>
+                </div>
+                <div class="link-column">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 BloodConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

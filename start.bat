@@ -1,0 +1,3 @@
+@echo off
+echo Starting Blood Donor Finder Frontend...
+start frontend\index.html
